@@ -2,14 +2,11 @@ import { useSelector } from "react-redux";
 
 const Digimons = () => {
   const { digimons } = useSelector((state) => state);
+  const digiLength = digimons.length - 1;
 
   return (
     <div>
-      <ul>
-        {digimons.map((digimon, index) => {
-          return <li key={index}>{digimon}</li>;
-        })}
-      </ul>
+      <section key={digiLength}>{digimons[digiLength].name}</section>
     </div>
   );
 };

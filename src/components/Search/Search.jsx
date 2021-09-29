@@ -9,7 +9,8 @@ const Search = () => {
 
   const handleSearch = () => {
     setError(false);
-    dispatch(() => setInput(""));
+    dispatch(addDigimonsThunk(input, setError));
+    setInput("");
   };
 
   return (
