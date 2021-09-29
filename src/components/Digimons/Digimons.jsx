@@ -2,7 +2,11 @@ import { useSelector } from "react-redux";
 
 const Digimons = () => {
   const { digimons } = useSelector((state) => state);
-  const digiLength = digimons.length - 1;
+  let digiLength = digimons.length - 1;
+
+  if (digimons.length === 0) {
+    return (digiLength = "");
+  }
 
   return (
     <div>
