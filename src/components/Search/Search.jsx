@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import addDigimonsThunk from "./../../store/modules/digimons/thunks";
 import { Container, Content } from "./style";
@@ -19,6 +19,7 @@ const useStyles = makeStyles((theme) => ({
 const Search = () => {
   const [input, setInput] = useState("");
   const [error, setError] = useState(false);
+  const [message, setMessage] = useState("");
   const dispatch = useDispatch();
   const classes = useStyles();
 
@@ -27,6 +28,14 @@ const Search = () => {
     dispatch(addDigimonsThunk(input, setError));
     setInput("");
   };
+
+  useEffect(() => {
+    if (error === true) {
+      setMessage("Digimon não encontrado");
+    } else {
+      setMessage("");
+    }
+  }, [error]);
 
   return (
     <Container>
@@ -49,6 +58,7 @@ const Search = () => {
           {"  "}Pesquisar {"  "}
         </Button>
       </Content>
+      {message}
     </Container>
   );
 };

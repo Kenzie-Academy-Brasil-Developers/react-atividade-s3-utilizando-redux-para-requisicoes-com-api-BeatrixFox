@@ -8,7 +8,6 @@ const addDigimonsThunk = (digimon, setError) => (dispatch) => {
     .then((response) => {
       dispatch(addDigimon(response.data[0]));
     })
-
     .catch((err) => setError(true));
 };
 
