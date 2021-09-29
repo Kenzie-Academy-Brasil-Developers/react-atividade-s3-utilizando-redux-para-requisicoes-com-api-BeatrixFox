@@ -9,7 +9,7 @@ const Digimons = () => {
   const background = useTransform(
     x,
     [-100, 0, 100],
-    ["#ff008c", "#7700ff", "rgb(230, 255, 0)"]
+    ["#ff002b", "#7700ff", "rgb(72, 255, 0)"]
   );
 
   if (digimons.length === 0) {

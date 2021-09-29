@@ -1,25 +1,21 @@
 import { useSelector } from "react-redux";
+import { Container, DigiList } from "./style";
 
 const DigimonList = () => {
   const { digimons } = useSelector((state) => state);
 
   return (
-    <ul>
+    <Container>
       {digimons.map((digimon, index) => {
         return (
-          <li key={index}>
+          <DigiList key={index}>
             <h5>{digimon.name}</h5>
-            <img
-              src={digimon.img}
-              alt={digimon.name}
-              width="100px"
-              height="100px"
-            />
+            <img src={digimon.img} alt={digimon.name} />
             <p>Level : {digimon.level}</p>
-          </li>
+          </DigiList>
         );
       })}
-    </ul>
+    </Container>
   );
 };
 
